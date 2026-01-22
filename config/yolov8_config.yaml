@@ -1,0 +1,54 @@
+# YOLOv8 Configuration
+
+model:
+  name: "yolov8"
+  variant: "yolov8m"  # yolov8n, yolov8s, yolov8m, yolov8l, yolov8x
+  weights: "yolov8m.pt"  
+  backend: "pytorch"  # pytorch, onnx, tensorrt
+  
+detection:
+  confidence_threshold: 0.35  
+  iou_threshold: 0.55  
+  max_detections: 300
+  target_class: 0  # 0 = человек в COCO датасете
+  input_size: [640, 640]  
+  
+preprocessing:
+  normalize: true
+  letterbox: true
+  auto: true
+  
+postprocessing:
+  agnostic_nms: false
+  multi_label: false
+  
+optimization:
+  half_precision: false  
+  device: "auto"  # auto, cpu, cuda:0, cuda:1, etc.
+  batch_size: 1
+  
+visualization:
+  bbox_thickness: 2
+  bbox_color: [0, 255, 0]  
+  text_color: [255, 255, 255]  
+  text_scale: 0.6
+  text_thickness: 2
+  show_confidence: true
+  show_class_label: true
+  
+tracking:
+  enable: false
+  tracker_type: "bytetrack"
+  track_buffer: 30
+  track_threshold: 0.5
+  match_threshold: 0.8
+  min_box_area: 10
+  
+export:
+  onnx:
+    opset: 12
+    simplify: true
+    dynamic: false
+  tensorrt:
+    precision: "fp16"  # fp32, fp16, int8
+    workspace: 4  

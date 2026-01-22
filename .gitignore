@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Jupyter
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Model weights (large files)
+*.pt
+*.pth
+*.onnx
+*.engine
+
+# Results
+results/*.mp4
+results/*.json
+results/*.png
+
+# Data
+crowd.mp4
+*.mp4
+*.avi
+*.mov
+
+# OS
+.DS_Store
+Thumbs.db

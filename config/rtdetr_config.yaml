@@ -1,0 +1,51 @@
+# RT-DETR Configuration
+
+model:
+  name: "rtdetr"
+  variant: "rtdetr-l"  # rtdetr-l, rtdetr-x
+  weights: "rtdetr-l.pt"  
+  backend: "pytorch"  # pytorch, onnx
+  
+detection:
+  confidence_threshold: 0.35  
+  iou_threshold: 0.55  # для RT-DETR 
+  max_detections: 300
+  target_class: 0  # 0 = человек в COCO датасете
+  input_size: [640, 640]  
+  
+preprocessing:
+  normalize: true
+  letterbox: true
+  auto: true
+  
+postprocessing:
+  # RT-DETR
+  use_nms: false
+  
+optimization:
+  half_precision: false  
+  device: "auto"  
+  batch_size: 1
+  
+visualization:
+  bbox_thickness: 2
+  bbox_color: [255, 0, 0]  
+  text_color: [255, 255, 255]  
+  text_scale: 0.6
+  text_thickness: 2
+  show_confidence: true
+  show_class_label: true
+  
+tracking:
+  enable: false
+  tracker_type: "bytetrack"
+  track_buffer: 30
+  track_threshold: 0.5
+  match_threshold: 0.8
+  min_box_area: 10
+  
+export:
+  onnx:
+    opset: 12
+    simplify: true
+    dynamic: false
