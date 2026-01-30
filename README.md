@@ -3,7 +3,7 @@
 
 ---
 ## Как запустить
-1. Склопировать проект:
+1. Скопировать проект:
 ```bash
 git clone https://github.com/rgnrmnv/person-detection.git
 cd person-detection
